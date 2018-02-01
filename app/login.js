@@ -21,14 +21,23 @@ export default class Login extends Component{
     }
 
     onAccountChanged(text){
-
+        this.setState({
+            account:text
+        });
     }
 
     onPasswordChanged(text){
-
+        this.setState({
+            password:text
+        });
     }
 
     onLogin(){
+        if(!this.state.account||!this.state.password){
+            alert(this.state.account+"<--WRONG-->"+this.state.password);
+        }else{
+            alert(this.state.account+"<--OK-->"+this.state.password);
+        }
 
     }
 
@@ -46,7 +55,7 @@ export default class Login extends Component{
                 <View style={{flexDirection:'row',justifyContent:'center'}}>
 
                     <Text style={style.text}>邮箱</Text>
-                    <TextInput style={style.input}
+                    <TextInput style={[style.input,{placeholder:'account'}]}
                                onChangeText={text =>{
                                    this.onAccountChanged(text);
                                }}
@@ -57,7 +66,7 @@ export default class Login extends Component{
                 <View style={{flexDirection:'row',justifyContent:'center'}}>
 
                 <Text style={style.text}>密码</Text>
-                <TextInput style={style.input}
+                <TextInput style={[style.input,{password:true}]}
                            onChangeText={text =>{
                                this.onPasswordChanged(text);
                            }}
@@ -67,7 +76,9 @@ export default class Login extends Component{
 
                 <TouchableOpacity onPress={()=>{
                     this.onLogin();
-                }}/>
+                }} style={style.button}>
+                    <Text>登录</Text>
+                </TouchableOpacity>
 
             </View>
 
@@ -83,7 +94,7 @@ const style=StyleSheet.create({
     container:{
         flexDirection:'column',
         flex:1,
-        backgroundColor:'white',
+        backgroundColor:'#fff',
         justifyContent:'center'
     },
     input:{
