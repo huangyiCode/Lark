@@ -1,0 +1,38 @@
+
+{
+   Login
+
+
+
+
+   Tab{
+
+       Main{
+
+          UserIndo
+
+       }
+       Message{
+
+          MessageDetail
+
+       }
+       Manager{
+
+         Table
+
+       }
+       About{
+
+         WebViewShow
+
+       }
+
+
+   }
+
+
+
+
+
+}
