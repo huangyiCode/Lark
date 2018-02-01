@@ -52,24 +52,26 @@ export default class Login extends Component{
 
             <View style={style.container}>
 
-                <View style={{flexDirection:'row',justifyContent:'center'}}>
+                <View style={{flexDirection:'row',justifyContent:'center',alignItems:"center"}}>
 
                     <Text style={style.text}>邮箱</Text>
-                    <TextInput style={[style.input,{placeholder:'account'}]}
+                    <TextInput style={[style.input]}
                                onChangeText={text =>{
                                    this.onAccountChanged(text);
                                }}
+                               placeholder="account"
                     />
 
                 </View>
 
-                <View style={{flexDirection:'row',justifyContent:'center'}}>
+                <View style={{flexDirection:'row',justifyContent:'center',alignItems:"center"}}>
 
                 <Text style={style.text}>密码</Text>
-                <TextInput style={[style.input,{password:true}]}
+                <TextInput style={[style.input]}
                            onChangeText={text =>{
                                this.onPasswordChanged(text);
                            }}
+                           password="true"
                 />
 
                 </View>
@@ -92,12 +94,14 @@ export default class Login extends Component{
 
 const style=StyleSheet.create({
     container:{
+        justifyContent:'center',
         flexDirection:'column',
         flex:1,
         backgroundColor:'#fff',
-        justifyContent:'center'
+        alignItems:"center"
     },
     input:{
+       width:200,
        marginLeft:20,
        borderWidth:1,
        height:45,
@@ -106,11 +110,11 @@ const style=StyleSheet.create({
        marginTop:10
     },
     button:{
-        backgroundColor:'#00f',
-        padding:5
+        margin:20,
+        padding:10,
+        backgroundColor:"#ececec"
     },
     text:{
-
     },
     img:{
 
