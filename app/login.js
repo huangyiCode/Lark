@@ -6,9 +6,15 @@ import {
     Text,
     View,
     TextInput,
-    TouchableOpacity
+    TouchableOpacity,
+    Image
 } from 'react-native';
 
+import Util from "./util";
+import Service from './service';
+
+//Regix for email
+const patternEmail=new RegExp("/^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$/");
 
 export default class Login extends Component{
 
@@ -34,9 +40,23 @@ export default class Login extends Component{
 
     onLogin(){
         if(!this.state.account||!this.state.password){
-            alert(this.state.account+"<--WRONG-->"+this.state.password);
+            alert("账号/密码不能为空!");
         }else{
-            alert(this.state.account+"<--OK-->"+this.state.password);
+            //pattern format
+            // if(!patternEmail.test(this.state.account)){
+            //     alert("邮箱格式错误!");
+            //     return;
+            // }
+            //request Login
+            var path=Service.host+Service.login;
+            var email=this.state.account;
+            var password=this.state.password;
+            //it will be showing loading...
+            Util.post(path,{email:email,password:password,deviceId:11},function (data){
+
+                 alert(data.data);
+
+            });
         }
 
     }
@@ -46,32 +66,32 @@ export default class Login extends Component{
      * render the login layout
      */
     render(){
-
-        const text='haha';
         return (
 
-            <View style={style.container}>
+            <View style={style.base}>
 
-                <View style={{flexDirection:'row',justifyContent:'center',alignItems:"center"}}>
+                <View style={style.container}>
 
                     <Text style={style.text}>邮箱</Text>
-                    <TextInput style={[style.input]}
+                    <TextInput style={style.input}
                                onChangeText={text =>{
                                    this.onAccountChanged(text);
                                }}
-                               placeholder="account"
+                               placeholder="Account"
+                               keyboardType="email-address"
+                               underlineColorAndroid='transparent'
                     />
 
                 </View>
 
-                <View style={{flexDirection:'row',justifyContent:'center',alignItems:"center"}}>
+                <View style={style.container}>
 
                 <Text style={style.text}>密码</Text>
-                <TextInput style={[style.input]}
+                <TextInput style={style.input}
                            onChangeText={text =>{
                                this.onPasswordChanged(text);
                            }}
-                           password="true"
+                           placeholder="password"
                 />
 
                 </View>
@@ -93,28 +113,37 @@ export default class Login extends Component{
 
 
 const style=StyleSheet.create({
-    container:{
-        justifyContent:'center',
+    base:{
         flexDirection:'column',
         flex:1,
         backgroundColor:'#fff',
-        alignItems:"center"
+        justifyContent:'center',
+        alignItems:'center'
+    },
+    container:{
+        flexDirection:'row',
+        justifyContent:'center',
+        alignItems:'center'
     },
     input:{
-       width:200,
        marginLeft:20,
        borderWidth:1,
        height:45,
        borderColor:'#000',
        borderRadius:2,
-       marginTop:10
+       marginTop:10,
+       width:200
     },
     button:{
-        margin:20,
-        padding:10,
-        backgroundColor:"#ececec"
+        flexDirection:'row',
+        justifyContent:'center',
+        marginTop:20,
+        width:50,
+        padding:5,
+        backgroundColor:'#D4D4D4'
     },
     text:{
+
     },
     img:{
 
