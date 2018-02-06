@@ -7,14 +7,17 @@ import {
     View,
     TextInput,
     TouchableOpacity,
-    Image
+    Image,BackHandler
 } from 'react-native';
 
 import Util from "./util";
 import Service from './service';
+import Welcome from "./welcome";
 
 //Regix for email
-const patternEmail=new RegExp("/^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$/");
+const patternEmail=new RegExp(".{6,10}");
+
+
 
 export default class Login extends Component{
 
@@ -23,7 +26,13 @@ export default class Login extends Component{
         this.state={
             account:"",
             password:""
-        }
+        };
+        BackHandler.addEventListener('hardwareBackPress',  ()=> {
+            /*
+             * 登录界面使用了返回按键
+             */
+            return true;
+        });
     }
 
     onAccountChanged(text){
@@ -42,11 +51,11 @@ export default class Login extends Component{
         if(!this.state.account||!this.state.password){
             alert("账号/密码不能为空!");
         }else{
-            //pattern format
-            // if(!patternEmail.test(this.state.account)){
-            //     alert("邮箱格式错误!");
-            //     return;
-            // }
+            // pattern format
+            if(!patternEmail.test(this.state.account)){
+                alert("邮箱格式错误!");
+                return;
+            }
             //request Login
             var path=Service.host+Service.login;
             var email=this.state.account;
@@ -70,6 +79,7 @@ export default class Login extends Component{
 
             <View style={style.base}>
 
+                <Image source={require('./img/ic_launcher.png')}/>
                 <View style={style.container}>
 
                     <Text style={style.text}>邮箱</Text>
@@ -111,6 +121,17 @@ export default class Login extends Component{
 
 }
 
+Login.navigationOptions=({navigation})=>{
+
+    return {
+        headerTitle:'登录',
+        headerLeft:null,
+        headerTitleStyle:{
+            alignSelf:'center'
+        }
+
+    }
+};
 
 const style=StyleSheet.create({
     base:{
@@ -149,8 +170,4 @@ const style=StyleSheet.create({
 
 
     }
-
-
-
-
 });

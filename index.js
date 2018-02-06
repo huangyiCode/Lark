@@ -1,5 +1,5 @@
 import { AppRegistry } from 'react-native';
-import Login from "./app/login";
-import App from './App'
+import Welcome from './app/welcome'
+import NavApp from './App'
 
-AppRegistry.registerComponent('Lark', () => Login);
+AppRegistry.registerComponent('Lark', () => NavApp);
