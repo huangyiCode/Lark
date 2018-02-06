@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 #/bin/bash
 # @author: Mike
 # @date: 2018-02-01

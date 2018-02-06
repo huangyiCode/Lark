@@ -12,7 +12,6 @@ import {
 
 import Util from "./util";
 import Service from './service';
-import Welcome from "./welcome";
 
 //Regix for email
 const patternEmail=new RegExp(".{6,10}");
@@ -57,9 +56,9 @@ export default class Login extends Component{
                 return;
             }
             //request Login
-            var path=Service.host+Service.login;
-            var email=this.state.account;
-            var password=this.state.password;
+            let path=Service.host+Service.login;
+            let email=this.state.account;
+            let password=this.state.password;
             //it will be showing loading...
             Util.post(path,{email:email,password:password,deviceId:11},function (data){
 

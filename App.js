@@ -5,14 +5,6 @@
  */
 
 import React, {Component} from 'react';
-import {
-    Platform,
-    StyleSheet,
-    Text,
-    View,
-    Button
-} from 'react-native';
-
 /*
  *
  * we should use it to change screen.
@@ -23,7 +15,7 @@ import Welcome from './app/welcome'
 
 /**
  *
- *  in this js file we could config the StackNavigator
+ *  in this js file we could config the default StackNavigator for application.
  *
  */
 

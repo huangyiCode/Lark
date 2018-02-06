@@ -24,7 +24,6 @@ export default class Welcome extends Component{
 
     render(){
 
-
         return (
             <View style={style.container}>
                 <Image style={style.image} source={require('./img/ic_launcher.png')}/>

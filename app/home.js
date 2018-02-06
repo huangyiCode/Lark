@@ -15,7 +15,7 @@ import {
  *  Home 界面逻辑
  *
  */
-export default class Home extends Component{
+class Home extends Component{
 
 
     render(){
@@ -26,3 +26,11 @@ export default class Home extends Component{
 
 
 }
+
+/**
+ *
+ * Home 界面导航配置
+ */
+const NavHome={};
+
+export default NavHome;
