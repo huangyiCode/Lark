@@ -20,6 +20,17 @@ const patternEmail=new RegExp(".{6,10}");
 
 export default class Login extends Component{
 
+    static navigationOptions = {
+        title: '登录',
+        tabBarIcon: ({ tintColor }) => (
+            <Icon name="md-home" size={25} color={tintColor} />
+        ),
+        headerTitleStyle:{
+            alignSelf:'center'
+        },
+        headerLeft:null
+    };
+
     constructor(props){
         super();
         this.state={
@@ -120,17 +131,17 @@ export default class Login extends Component{
 
 }
 
-Login.navigationOptions=({navigation})=>{
+// Login.navigationOptions=({navigation})=>{
+//
+//     return {
+//         headerTitle:'登录',
+//         headerLeft:null,
+//         headerTitleStyle:{
+//             alignSelf:'center'
+//         }
+//
+//     }
 
-    return {
-        headerTitle:'登录',
-        headerLeft:null,
-        headerTitleStyle:{
-            alignSelf:'center'
-        }
-
-    }
-};
 
 const style=StyleSheet.create({
     base:{

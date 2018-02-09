@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import {Image,StyleSheet,View,Text} from 'react-native'
-import {StackNavigator} from 'react-navigation'
-import Login from "./login";
 
 
 
@@ -16,7 +14,7 @@ export default class Welcome extends Component{
         * 进行延时操作,三秒后自动进行跳转
         */
         setTimeout(() =>{
-            navigate('login');
+            navigate('homeRoute');
             clearTimeout(this);
         },3000);
     }

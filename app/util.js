@@ -8,7 +8,7 @@ var {PixelRatio} =React;
 
 var Util={
 
-    //单位像素
+    // 单位像素
     // pixel:1/PixelRatio.get(),
     //屏幕尺寸
     size:{
