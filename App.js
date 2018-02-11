@@ -9,13 +9,13 @@ import React, {Component} from 'react';
  *
  * we should use it to change screen.
  */
-import {StackNavigator, TabNavigator} from 'react-navigation'
+import {StackNavigator,TabNavigator} from 'react-navigation'
 import Login from './app/login'
 import Welcome from './app/welcome'
-import Home from './app/home';
-import About from './app/about';
-import Message from './app/message';
-import Manager from './app/manager';
+import About from "./app/about";
+import Message from './app/message'
+import Manager from './app/manager'
+import Home from  './app/home'
 
 /**
  *
@@ -34,7 +34,7 @@ const HomeRoute = TabNavigator(
         lazy: true,
         tabBarPosition: 'bottom',
         tabBarOptions: {
-            activeTintColor: '#3e9ce9',
+            activeTintColor: '#4db6ac',
             inactiveTintColor: '#999999',
             showIcon: true,
             style: {
@@ -60,7 +60,8 @@ const HomeRoute = TabNavigator(
 const NavApp = StackNavigator({
     welcome: {screen: Welcome},
     login: {screen: Login},
-    homeRoute: {screen: HomeRoute}
+    homeRoute: {screen: HomeRoute},
+    about:{screen:About}
 
 }, {
     //default display pager

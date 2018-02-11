@@ -13,13 +13,11 @@ import {
 
 
 export default class Manager extends Component{
+
     static navigationOptions = {
-        title: '管理',
-        tabBarIcon: ({ tintColor }) => (
-            <Image source={require('./img/ic_launcher.png')}
-                   style={{width :40,height:40}}/>
-        )
+        title: '管理'
     };
+
     render(){
 
         return (

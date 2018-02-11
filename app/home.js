@@ -13,6 +13,7 @@ import {
 import Utils from './util';
 import Service from './service';
 import ItemBlock from './home/itemblock'
+import Icon from 'react-native-vector-icons/Ionicons';
 
 
 
@@ -20,10 +21,10 @@ export default class Home extends Component{
 
     static navigationOptions = {
         title: '首页',
-        tabBarIcon: ({ tintColor }) => (
-            <Image source={require('./img/ic_launcher.png')}
-                   style={{width :40,height:40}}/>
-        )
+        tabBarIcon:({tintColor})=>(
+                <Icon name="md-home" size={30} color={tintColor}/>
+
+            )
     };
 
     getInitialState(){

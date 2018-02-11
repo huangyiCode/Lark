@@ -25,16 +25,9 @@ import Manager from './manager';
 class HomeRoute extends Component {
 
     static navigationOptions = {
-        title: '首页',
-        tabBarIcon: ({ tintColor }) => (
-            <Icon name="md-home" size={25} color={tintColor} />
-        ),
-        headerTitleStyle:{
-            alignSelf:'center'
-        },
-        headerLeft:null
-    };
+        title: this.state.selectIndex
 
+    }
     constructor(props){
         super(props);
         this.state={
@@ -64,8 +57,6 @@ class HomeRoute extends Component {
                     ()=>{
                           this.setState({ selectIndex: index});
                          }
-
-
                 }
                 titleStyle={{color:'black'}}
                 selectedTitleStyle={{color:'#4db6ac'}}

@@ -15,12 +15,9 @@ import {
 export default class Message extends Component{
 
     static navigationOptions = {
-        title: '消息',
-        tabBarIcon: ({ tintColor }) => (
-            <Image source={require('./img/ic_launcher.png')}
-                   style={{width :40,height:40}}/>
-        )
+        title: '公告'
     };
+
     render(){
 
         return (

@@ -54,7 +54,6 @@ const ItemBlock = ({style, tittle, partment, color}) => {
                 <Text>
                     {tittle}
                     </Text>
-                    </Text>
             </View>
 
             <View style={textStyle()}>
