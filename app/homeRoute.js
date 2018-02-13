@@ -78,7 +78,6 @@ class HomeRoute extends Component {
              {this.renderTabNavigatorItm('关于',require('./img/ic_launcher.png'),require('./img/ic_launcher.png'),3,About)}
         </TabNavigator>)
 
-
     }
 
 }

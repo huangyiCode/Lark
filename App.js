@@ -65,7 +65,7 @@ const NavApp = StackNavigator({
 
 }, {
     //default display pager
-    initialRouteName: 'welcome',
+    initialRouteName: 'homeRoute',
     navigationOptions: {
         headerStyle: {
             backgroundColor: '#4db6ac'
