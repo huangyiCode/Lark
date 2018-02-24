@@ -14,47 +14,53 @@ import Utils from '../util';
 import Services from '../service';
 
 
-let partment;
-let id;
-let navigate;
-
-
-
 export default class ItemBlock extends Component {
 
 
-
-    constructor(props){
+    constructor(props) {
         super(props);
-        partment=props.partment;
-        id=props.id;
-        navigate=props.navigation.navigate;
-
-
     }
 
     /**
      *
      * on press and jump the Address pager.
      */
-    loadPager =function() {
+    loadPager = function () {
 
-        let path=Services.host+Services.getUser;
+        // let path = Services.host + Services.getUser;
+        //
+        let {navigate} = this.props.navigation;
+        //
+        // Utils.post(path, '', function (data) {
+        //
+        //     /**
+        //      * we must transfer to next pager.
+        //      */
+        //     // if(data.status){
+        //         //暂时传递假数据
+        //         navigate('address',{name:'Mike'});
+        //     // }
+        //
+        // });
 
-        Utils.post(path,{
-            key:Utils.key,
-          partment:partment
-        },function (data) {
-
-            /**
-             * we must transfer to next pager.
-             */
-           alert(data.data);
-
-        });
+        let fetchOptions = {
+            method: 'GET',
+            headers: {
+                'Authorization': "APPCODE 4a15a1cc56554d43b86620378ee9fe8f",
+                'Content': 'application/json'
+            }
+        };
+        fetch('http://toutiao-ali.juheapi.com/toutiao/index?type=guonei', fetchOptions)
+            .then(response => response.json())
+            .then(responseText => {
+                navigate('address',responseText.result.data)
+            })
+            .catch((error) => {
+                console.log("Api call error");
+                alert(error.message);
+            });
 
     };
-
 
 
     render() {
@@ -66,9 +72,9 @@ export default class ItemBlock extends Component {
                 marginLeft: 10,
                 borderRadius: 10,
                 opacity: 0.7
-            }]} key={this.props.id} onPress={this.loadPager}>
-
-
+            }]} key={this.props.id} onPress={() => {
+                this.loadPager();
+            }}>
                 <View style={style.textContainer}>
                     <Text style={style.topText}>
                         {this.props.title}
@@ -99,7 +105,7 @@ const style = StyleSheet.create({
     bottomText: {
         color: 'white',
         fontSize: 10
-    },textContainer:{
+    }, textContainer: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center'

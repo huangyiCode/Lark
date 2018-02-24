@@ -16,6 +16,8 @@ import About from "./app/about";
 import Message from './app/message'
 import Manager from './app/manager'
 import Home from  './app/home'
+import Address from "./app/home/address";
+import AddressDetail from "./app/home/addressDetail";
 
 /**
  *
@@ -61,7 +63,9 @@ const NavApp = StackNavigator({
     welcome: {screen: Welcome},
     login: {screen: Login},
     homeRoute: {screen: HomeRoute},
-    about:{screen:About}
+    about:{screen:About},
+    address:{screen:Address},
+    addressDetail:{screen:AddressDetail}
 
 }, {
     //default display pager
