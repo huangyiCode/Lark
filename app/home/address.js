@@ -9,8 +9,8 @@ import {
     Image, BackHandler, FlatList
 } from 'react-native';
 
-var {NativeModules} = require('react-native');
-var rnToastModel = NativeModules.RNToastModel;
+let {NativeModules} = require('react-native');
+let rnToastModel = NativeModules.RNToastModel;
 
 export default class Address extends Component {
 
@@ -32,6 +32,7 @@ export default class Address extends Component {
     render() {
 
         let data = this.props.navigation.state.params;
+
 
 
         let renderItem = ({item}) => {
